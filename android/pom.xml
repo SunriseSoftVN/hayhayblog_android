@@ -9,9 +9,11 @@
     <name>android</name>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <platform.version>4.1.1.4</platform.version>
+        <spring.android.version>1.0.1.RELEASE</spring.android.version>
         <android.plugin.version>3.8.2</android.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -20,6 +22,16 @@
             <artifactId>android</artifactId>
             <version>${platform.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.android</groupId>
+            <artifactId>spring-android-rest-template</artifactId>
+            <version>${spring.android.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.android</groupId>
+            <artifactId>spring-android-core</artifactId>
+            <version>${spring.android.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -42,8 +54,17 @@
                     <sdk>
                         <platform>16</platform>
                     </sdk>
+                    <deleteConflictingFiles>true</deleteConflictingFiles>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>http://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
 </project>
